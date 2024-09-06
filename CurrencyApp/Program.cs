@@ -95,9 +95,6 @@ class Program
                         throw new Exception($"Ошибка: {ex.Message}");
                     }
                     
-
-
-
                     break;
                 case "2":
                     Console.WriteLine("Введите валюту первой суммы (USD, EUR, GBR):");
