@@ -111,5 +111,12 @@ namespace CurrencyApp.BLL
                 throw new Exception("Невозможно конвертировать", ex);
             }
         }
+        
+        public decimal Convert(Currency fromCurrency, Currency toCurrancy, decimal Value)
+        {
+            var rates = _currencyDao.GetCurrencyRates();
+
+            return _currencyConverter.Convert(Value, fromCurrency, toCurrancy, rates);
+        }
     }
 }

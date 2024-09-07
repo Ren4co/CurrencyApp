@@ -20,11 +20,6 @@ class Program
 
         var moneyOperation = container.Resolve<IMoneyOperation>();
 
-        var currencyConvert = container.Resolve<ICurrencyConverter>();
-
-        var currencyDao = container.Resolve<ICurrencyDao>();
-
-        var rates = currencyDao.GetCurrencyRates();
 
 
         while (true)
@@ -95,9 +90,6 @@ class Program
                         throw new Exception($"Ошибка: {ex.Message}");
                     }
                     
-
-
-
                     break;
                 case "2":
                     Console.WriteLine("Введите валюту первой суммы (USD, EUR, GBR):");
@@ -179,7 +171,7 @@ class Program
 
                     try
                     {
-                        var resultConvert = currencyConvert.Convert(valueForConvert, currencyFrom, currencyTo, rates);
+                        var resultConvert = moneyOperation.Convert(currencyFrom, currencyTo, valueForConvert);
                         Console.WriteLine($"Результат: {resultConvert} {currencyTo}");
                     }
                     catch(Exception ex)
@@ -197,7 +189,6 @@ class Program
 
             Console.WriteLine();
             Console.WriteLine();
-
 
         }
     }

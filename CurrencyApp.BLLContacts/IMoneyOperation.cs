@@ -12,5 +12,6 @@ namespace CurrencyApp.BLLContacts
     {
         Money Add(Money money1, Money money2, Currency destinationCurrency);
         Money Subtract(Money money1, Money money2, Currency destinationCurrency);
+        decimal Convert(Currency fromCurrency, Currency toCurrancy, decimal Value);
     }
 }

@@ -13,7 +13,7 @@ namespace CurrencyApp.DAL
                 { (Currency.EUR, Currency.USD), 1.18m },
                 { (Currency.USD, Currency.GBR), 0.74m },
                 { (Currency.GBR, Currency.USD), 1.35m },
-                { (Currency.EUR, Currency.GBR), 0.87m },
+                /*{ (Currency.EUR, Currency.GBR), 0.87m },*/
                 { (Currency.GBR, Currency.EUR), 1.15m }
             };
 
