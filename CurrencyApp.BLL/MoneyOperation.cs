@@ -58,9 +58,9 @@ namespace CurrencyApp.BLL
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Невозможно конвертировать");
+                throw new Exception("Ошибка сложения", ex);
             }
 
         }
@@ -108,7 +108,7 @@ namespace CurrencyApp.BLL
             }
             catch (Exception ex)
             {
-                throw new Exception("Невозможно конвертировать", ex);
+                throw new Exception("Ошибка вычитания", ex);
             }
         }
         
@@ -116,7 +116,19 @@ namespace CurrencyApp.BLL
         {
             var rates = _currencyDao.GetCurrencyRates();
 
-            return _currencyConverter.Convert(Value, fromCurrency, toCurrancy, rates);
+            try
+            {
+                var result = _currencyConverter.Convert(Value, fromCurrency, toCurrancy, rates);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ошибка конвертации", ex);
+            }
+
+
+
         }
     }
 }
